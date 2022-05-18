@@ -1,7 +1,20 @@
+const country = "Ukraine";
+const people = "3 milion";
+
+const yourCity = {
+  fakeCity: "Warsaw",
+  fakeInfo: {
+    fakeCounty: "Polska",
+    fakePeople: "1.2 milion",
+  },
+};
+
 const myCity = {
   city: "Kyiv",
-  people: true,
-  country: "Ukraine",
+  info: {
+    way: true,
+    country: yourCity.fakeInfo.fakeCounty,
+    people: yourCity.fakeInfo.fakePeople,
+  },
 };
-myCity["people"] = "1";
-console.log(myCity);
+console.log(myCity.info.country, myCity.info.people);
