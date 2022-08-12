@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p .animal {
+        color: yellow;
+      }
+      a[href*="Dog"] {
+        color: red;
+      }
+      a[href*="Cat"] {
+        color: red;
+      }
+
+      .catcolors {
+        border-radius: 5px;
+        font-size: 12px;
+        background-color: black;
+      }
+      .img {
+        margin: 5px;
+        border-radius: 10px;
+      }
+      .cats {
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">Lorem ipsum dolor sit amet consectetur.</p>
+    <p id="post_2">
+      <span class="animal">Lorem</span> ipsum dolor sit, amet
+      <span class="animal">lorem</span> consectetur adipisicing elit. Unde
+      impedit <span class="animal">lorem</span> sed iste eveniet porro! Rerum
+      architecto totam blanditiis debitis illum
+    </p>
+    <p id="post_3">
+      <span class="animal">Lorem</span> ipsum dolor sit amet consectetur,
+      <span class="animal">lorem</span> adipisicing elit. Deserunt, natus
+      <span class="animal">lorem</span> cum voluptatum cupiditate aut
+      <a target="_blank" href="http://en.wikipedia.org/wiki/Dog">dolorum</a>
+    </p>
+    <div class="cats">
+      <img src="images/dog_1.jpg" alt="cute dog..." height="150" />
+      <img src="images/dog_2.jpg" alt="cute dog..." height="150" />
+    </div>
+
+    <script>
+      var headingEl = document.querySelector("#heading");
+      headingEl.classList.add("catcolors");
+      headingEl.style.color = "yellow";
+      headingEl.style.fontSize = "20px";
+      headingEl.style.textAlign = "center";
+      headingEl.innerHTML = "It`s not lorem.";
+
+      var loremEls = document.querySelectorAll("p .animal");
+      for (var i = 0; i < loremEls.length; i++) {
+        var strongEl = document.createElement("strong");
+        var strongText = document.createTextNode("Pussy");
+        strongEl.appendChild(strongText);
+        loremEls[i].innerHTML = "";
+        loremEls[i].appendChild(strongEl);
+        loremEls[i].classList.add("catcolors");
+      }
+
+      var linkEls = document.querySelectorAll("a[href*='Dog']");
+      for (var i = 0; i < linkEls.length; i++) {
+        linkEls[i].href = "http://en.wikipedia.org/wiki/Cat";
+      }
+
+      var imgCats = document.querySelectorAll(".cats");
+      console.log(imgCats);
+      for (i = 0; i < imgCats.length; i++) {
+        imgCats[i].src = "images/cat_1.jpeg";
+      }
+
+      var turtleEl = document.createElement("img");
+      turtleEl.src = "images/turtle.jpg";
+      turtleEl.alt = "Cute turtle";
+      // turtleEl.classList.add("#cats");
+      turtleEl.style.maxHeight = "250px";
+      document.body.appendChild(turtleEl);
+    </script>
+  </body>
+</html>

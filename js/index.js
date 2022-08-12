@@ -13,8 +13,9 @@ const myCity = {
   city: "Kyiv",
   info: {
     way: true,
+    city: yourCity.fakeCity,
     country: yourCity.fakeInfo.fakeCounty,
     people: yourCity.fakeInfo.fakePeople,
   },
 };
-console.log(myCity.info.country, myCity.info.people);
+console.log(myCity.info.city, myCity.info.country, myCity.info.people);
