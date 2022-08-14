@@ -18,4 +18,4 @@ const myCity = {
     people: yourCity.fakeInfo.fakePeople,
   },
 };
-console.log(myCity.info.city, myCity.info.country, myCity.info.people);
+console.log(myCity);

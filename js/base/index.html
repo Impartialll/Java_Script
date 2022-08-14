@@ -16,12 +16,17 @@
         color: red;
       }
 
+      #heading {
+        color: yellow;
+        font-size: 20px;
+        text-align: center;
+      }
       .catcolors {
         border-radius: 5px;
         font-size: 12px;
         background-color: black;
       }
-      .img {
+      img {
         margin: 5px;
         border-radius: 10px;
       }
@@ -48,16 +53,13 @@
       <a target="_blank" href="http://en.wikipedia.org/wiki/Dog">dolorum</a>
     </p>
     <div class="cats">
-      <img src="images/dog_1.jpg" alt="cute dog..." height="150" />
-      <img src="images/dog_2.jpg" alt="cute dog..." height="150" />
+      <img id="dog_1" src="images/dog_1.jpg" alt="cute dog..." height="150" />
+      <img id="dog_2" src="images/dog_2.jpg" alt="cute dog..." height="150" />
     </div>
 
     <script>
       var headingEl = document.querySelector("#heading");
       headingEl.classList.add("catcolors");
-      headingEl.style.color = "yellow";
-      headingEl.style.fontSize = "20px";
-      headingEl.style.textAlign = "center";
       headingEl.innerHTML = "It`s not lorem.";
 
       var loremEls = document.querySelectorAll("p .animal");
@@ -75,7 +77,7 @@
         linkEls[i].href = "http://en.wikipedia.org/wiki/Cat";
       }
 
-      var imgCats = document.querySelectorAll(".cats");
+      var imgCats = document.querySelectorAll("#dog_1, #dog_2");
       console.log(imgCats);
       for (i = 0; i < imgCats.length; i++) {
         imgCats[i].src = "images/cat_1.jpeg";
@@ -84,9 +86,26 @@
       var turtleEl = document.createElement("img");
       turtleEl.src = "images/turtle.jpg";
       turtleEl.alt = "Cute turtle";
-      // turtleEl.classList.add("#cats");
-      turtleEl.style.maxHeight = "250px";
+      // turtleEl.classList.add("cats");
+      // turtleEl.style.maxHeight = "250px";
       document.body.appendChild(turtleEl);
+
+      var buttonEl = document.createElement("button");
+      buttonEl.id = "clicker";
+      buttonEl.innerHTML = "style for turtle";
+      document.body.appendChild(buttonEl);
+
+      var buttonOnClick = function () {
+        var styleEl = turtleEl.classList.add("cats");
+        turtleEl.style.maxHeight = "250px";
+      };
+      var stop_func = function () {
+        buttonOnClick = clearTimeout();
+      };
+      buttonOnClick();
+      buttonEl.addEventListener("click", function () {
+        delete classList.styleEl;
+      });
     </script>
   </body>
 </html>
