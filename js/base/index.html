@@ -31,6 +31,7 @@
         border-radius: 10px;
       }
       .cats {
+        max-height: 200px;
         margin: 50px;
         display: flex;
         justify-content: center;
@@ -78,7 +79,6 @@
       }
 
       var imgCats = document.querySelectorAll("#dog_1, #dog_2");
-      console.log(imgCats);
       for (i = 0; i < imgCats.length; i++) {
         imgCats[i].src = "images/cat_1.jpeg";
       }
@@ -86,8 +86,8 @@
       var turtleEl = document.createElement("img");
       turtleEl.src = "images/turtle.jpg";
       turtleEl.alt = "Cute turtle";
+      // turtleEl.className = "cats";
       // turtleEl.classList.add("cats");
-      // turtleEl.style.maxHeight = "250px";
       document.body.appendChild(turtleEl);
 
       var buttonEl = document.createElement("button");
@@ -95,17 +95,22 @@
       buttonEl.innerHTML = "style for turtle";
       document.body.appendChild(buttonEl);
 
-      var buttonOnClick = function () {
-        var styleEl = turtleEl.classList.add("cats");
-        turtleEl.style.maxHeight = "250px";
+      var mainFunc = function () {
+        if (buttonEl.click) {
+          styleEl();
+        }
       };
-      var stop_func = function () {
-        buttonOnClick = clearTimeout();
+      var styleEl = function () {
+        if (turtleEl.className != "cats") {
+          turtleEl.className = "cats";
+        } else if (turtleEl.className == "cats") {
+          turtleEl.className = "";
+        }
       };
-      buttonOnClick();
-      buttonEl.addEventListener("click", function () {
-        delete classList.styleEl;
-      });
+      var styleOn = function () {
+        turtleEl.className = "";
+      };
+      buttonEl.addEventListener("click", mainFunc);
     </script>
   </body>
 </html>

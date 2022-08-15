@@ -5,14 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS</title>
+    <style>
+      img {
+        max-width: 250px;
+      }
+      .cat {
+        position: absolute;
+        border-radius: 6px;
+        max-height: 50px;
+      }
+      .beard {
+        background: black;
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        border-radius: 2px;
+        top: 200px;
+        left: 45px;
+      }
+    </style>
   </head>
   <body>
-    <h1 id="h12">Adding an event listener</h1>
-    <button id="clicker">click me</button>
+    <img
+      id="face"
+      src="https://lutonmuslimjournal.com/wp-content/uploads/2019/06/YeDYzSR-10apkm4.png"
+      alt="mike"
+    />
+    <div id="message"></div>
     <script>
-      var clickerEl = document.getElementById("clicker");
-      var buttonOnClick = function () {};
-      clickerEl.addEventListener("click", buttonOnClick);
+      var onMouseMove = function (event) {
+        console.log(event);
+        var face = document.getElementById("face");
+
+        var cat = document.createElement("img");
+        cat.src = "base/images/cat_1.jpeg";
+        cat.className = "cat";
+        document.body.appendChild(cat);
+
+        cat.style.top = event.clientY + "px";
+        cat.style.left = event.clientX + "px";
+      };
+      face.addEventListener("mousemove", onMouseMove);
     </script>
   </body>
 </html>
