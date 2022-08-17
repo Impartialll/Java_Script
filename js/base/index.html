@@ -59,55 +59,55 @@
     </div>
 
     <script>
-      var headingEl = document.querySelector("#heading");
+      let headingEl = document.querySelector("#heading");
       headingEl.classList.add("catcolors");
       headingEl.innerHTML = "It`s not lorem.";
 
-      var loremEls = document.querySelectorAll("p .animal");
-      for (var i = 0; i < loremEls.length; i++) {
-        var strongEl = document.createElement("strong");
-        var strongText = document.createTextNode("Pussy");
+      let loremEls = document.querySelectorAll("p .animal");
+      for (let i = 0; i < loremEls.length; i++) {
+        let strongEl = document.createElement("strong");
+        let strongText = document.createTextNode("Pussy");
         strongEl.appendChild(strongText);
         loremEls[i].innerHTML = "";
         loremEls[i].appendChild(strongEl);
         loremEls[i].classList.add("catcolors");
       }
 
-      var linkEls = document.querySelectorAll("a[href*='Dog']");
-      for (var i = 0; i < linkEls.length; i++) {
+      let linkEls = document.querySelectorAll("a[href*='Dog']");
+      for (let i = 0; i < linkEls.length; i++) {
         linkEls[i].href = "http://en.wikipedia.org/wiki/Cat";
       }
 
-      var imgCats = document.querySelectorAll("#dog_1, #dog_2");
+      let imgCats = document.querySelectorAll("#dog_1, #dog_2");
       for (i = 0; i < imgCats.length; i++) {
         imgCats[i].src = "images/cat_1.jpeg";
       }
 
-      var turtleEl = document.createElement("img");
+      let turtleEl = document.createElement("img");
       turtleEl.src = "images/turtle.jpg";
       turtleEl.alt = "Cute turtle";
       // turtleEl.className = "cats";
       // turtleEl.classList.add("cats");
       document.body.appendChild(turtleEl);
 
-      var buttonEl = document.createElement("button");
+      let buttonEl = document.createElement("button");
       buttonEl.id = "clicker";
       buttonEl.innerHTML = "style for turtle";
       document.body.appendChild(buttonEl);
 
-      var mainFunc = function () {
+      let mainFunc = function () {
         if (buttonEl.click) {
           styleEl();
         }
       };
-      var styleEl = function () {
+      let styleEl = function () {
         if (turtleEl.className != "cats") {
           turtleEl.className = "cats";
         } else if (turtleEl.className == "cats") {
           turtleEl.className = "";
         }
       };
-      var styleOn = function () {
+      let styleOn = function () {
         turtleEl.className = "";
       };
       buttonEl.addEventListener("click", mainFunc);

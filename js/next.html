@@ -11,7 +11,7 @@
       }
       .cat {
         position: absolute;
-        border-radius: 6px;
+        border-radius: 10px;
         max-height: 50px;
       }
       .beard {
@@ -35,17 +35,22 @@
     <script>
       var onMouseMove = function (event) {
         console.log(event);
-        var face = document.getElementById("face");
 
-        var cat = document.createElement("img");
-        cat.src = "base/images/cat_1.jpeg";
-        cat.className = "cat";
-        document.body.appendChild(cat);
+        let face = document.getElementById("face");
+        let beard = document.createElement("div");
+        beard.className = "beard";
 
-        cat.style.top = event.clientY + "px";
-        cat.style.left = event.clientX + "px";
+        document.body.appendChild(beard);
+
+        beard.style.top = event.clientY + "px";
+        beard.style.left = event.clientX + "px";
       };
       face.addEventListener("mousemove", onMouseMove);
+      let message = document.getElementById("message");
+      document.body.addEventListener("keydown", function (key) {
+        console.log(key);
+        alert("You press: " + key.code + "\nPress Enter to continue");
+      });
     </script>
   </body>
 </html>
