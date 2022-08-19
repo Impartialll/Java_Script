@@ -86,7 +86,7 @@
       let turtleEl = document.createElement("img");
       turtleEl.src = "images/turtle.jpg";
       turtleEl.alt = "Cute turtle";
-      // turtleEl.className = "cats";
+      // turtleEl.className = "cars";
       // turtleEl.classList.add("cats");
       document.body.appendChild(turtleEl);
 
@@ -101,14 +101,11 @@
         }
       };
       let styleEl = function () {
-        if (turtleEl.className != "cats") {
-          turtleEl.className = "cats";
-        } else if (turtleEl.className == "cats") {
-          turtleEl.className = "";
-        }
-      };
-      let styleOn = function () {
-        turtleEl.className = "";
+        turtleEl.className == "cats"
+          ? (turtleEl.className = "")
+          : turtleEl.className == ""
+          ? (turtleEl.className = "cats")
+          : alert("Eror.\nPlease, reload the page.");
       };
       buttonEl.addEventListener("click", mainFunc);
     </script>
