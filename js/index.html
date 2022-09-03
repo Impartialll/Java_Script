@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+ <img
+      src="https://www.kasandbox.org/programming-images/creatures/OhNoes.png"
+      alt="not found"
+      id="ohnoes"
+    />
+    <h1><span id="countdown">5</span> Seconds Left</h1>
+    <span id="info"></span>
 
-  <body>
-    <label for=""
-      >What is your name ?
-      <input id="name" type="text" />
-    </label>
-    <br />
-    <label for=""
-      >What language do you speak ?
-      <select id="lang">
-        <option value="ua">Ukrainian</option>
-        <option value="en">English</option>
-        <option value="pl">Polska</option>
-      </select>
-    </label>
-    <br />
-    <button id="button" type="button">Say Hello!</button>
-    <div id="message"></div>
     <script>
-      function showName(evt) {
-        function switchLang(langKey) {
-          if (langKey.key === "Meta") {
-            switch (evt.langKey) {
-              case "ua":
-                evt.lang = "en";
-              case "en":
-                evt.lang = "pl";
-              case "pl":
-                evt.lang = "ua";
-              default:
-                alert("EROR");
-            }
-          }
-          console.log(langKey.key);
+      let countdown = document.getElementById("countdown");
+      function timeBomb() {
+        let currentTime = parseFloat(countdown.textContent);
+        if (currentTime > 0) {
+          countdown.textContent = currentTime - 1;
+        } else {
+          window.clearInterval(timer);
         }
-        let button = document.getElementById("button");
-        let hello = document.getElementById("message");
-        let lang = document.getElementById("lang").value;
-        hello.textContent = "";
-        let name = document.getElementById("name");
-        lang == "ua"
-          ? (hello.textContent = "Привіт, " + name.value + " радий тебе вітати")
-          : lang == "en"
-          ? (hello.textContent = "Hello, my dear " + name.value)
-          : lang == "pl"
-          ? (hello.textContent = "Witaj " + name.value + ", jak się masz?")
-          : (hello.textContent = "Some eror");
-        name.value = "";
       }
-      let name = document.getElementById("name");
-      button.addEventListener("click", showName);
-      name.addEventListener("keydown", function (enterKey) {
-        if (enterKey.key === "Enter") {
-          showName();
+      let timer = window.setInterval(timeBomb, 1000);
+
+      let info = document.getElementById("info");
+      function infoFunc() {
+        info.innerHTML = ohnoes.style.width;
+      }
+
+      let ohnoes = document.getElementById("ohnoes");
+      ohnoes.style.width = "100px";
+
+      let startTime = new Date().getTime();
+
+      function makeItSmaller() {
+        let currTimeSm = new Date().getTime();
+                
+        let newSmall = 100 - ((currTimeSm - startTime) / 1000) *120;
+        ohnoes.style.width = newSmall + "px";
+
+
+        if (newSmall > 50) {
+            requestAnimationFrame(makeItSmaller);
         }
-      });
-      document.body.addEventListener("keydown", showName.switchLang);
+        }
+        makeItSmaller();
     </script>
   </body>
 </html>
