@@ -1,0 +1,82 @@
+.container {
+  max-width: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: auto;
+}
+.block {
+  width: 200px;
+  height: 200px;
+  background: red;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  animation-name: getbigger;
+  animation-duration: 3s;
+  -webkit-animation-name: getbigger;
+  -webkit-animation-duration: 3s;
+}
+#label {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600;
+  font-size: 24px;
+
+  animation-name: fontB;
+  animation-duration: 3s;
+  -webkit-animation-name: fontB;
+  -webkit-animation-duration: 3s;
+}
+
+#label:hover {
+  font-size: 26px;
+  transition: font-size 500ms linear;
+}
+
+#clicker {
+  align-self: flex-end;
+  margin: 5px;
+}
+
+@keyframes getbigger {
+  from {
+    width: 100px;
+    height: 100px;
+  }
+  to {
+    width: 200px;
+    height: 200px;
+  }
+}
+@-webkit-keyframes getbigger {
+  from {
+    width: 100px;
+    height: 100px;
+  }
+  to {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@keyframes fontB {
+  from {
+    font-size: 12px;
+  }
+  to {
+    font-size: 24px;
+  }
+}
+@-webkit-keyframes fontB {
+  from {
+    font-size: 12px;
+  }
+  to {
+    font-size: 24px;
+  }
+}

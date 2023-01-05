@@ -95,11 +95,6 @@
       buttonEl.innerHTML = "style for turtle";
       document.body.appendChild(buttonEl);
 
-      let mainFunc = function () {
-        if (buttonEl.click) {
-          styleEl();
-        }
-      };
       let styleEl = function () {
         turtleEl.className == "cats"
           ? (turtleEl.className = "")
@@ -107,7 +102,7 @@
           ? (turtleEl.className = "cats")
           : alert("Eror.\nPlease, reload the page.");
       };
-      buttonEl.addEventListener("click", mainFunc);
+      buttonEl.addEventListener("click", styleEl);
     </script>
   </body>
 </html>
